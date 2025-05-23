@@ -1,6 +1,10 @@
+
 import main.Core;
+
 public class Cli {
     public Cli() {
-        Core.GetCommand();
+        while(true){
+            Core.GetCommand();
+        }
     }
 }

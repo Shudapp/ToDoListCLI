@@ -1,11 +1,14 @@
 package model;
 import main.Core;
+
+import java.util.List;
+
 public class Task {
     private int id = Core.GetNumberOfTasks();
     public String name;
     public String description;
-    private int priority;
-    private boolean isCompleted;
+    private static int priority;
+    public boolean isCompleted;
     public void ChangeStatus(){
         isCompleted = !isCompleted;
     }
@@ -15,9 +18,8 @@ public class Task {
     public void AddDescription(String Description){
         description=Description;
     }
-    public void setPriority(int Priority){
-        priority=Priority;
+    public static int GetPriority(){
+        return priority;
     }
-
 
 }
