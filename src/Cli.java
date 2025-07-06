@@ -3,8 +3,7 @@ import main.Core;
 
 public class Cli {
     public Cli() {
-        while(true){
-            Core.GetCommand();
-        }
+        Core core = new Core();
+        core.run();
     }
 }
