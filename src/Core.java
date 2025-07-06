@@ -34,14 +34,62 @@ public class Core {
                     break;
                } else if(command.contains("show")){
                     ShowTasks();
+               } else if(command.contains("add")){
+                    AddTask();
+               } else if(command.contains("remove")){
+                    Task toBeRemoved = GetTask();
+                    if(toBeRemoved != null) {
+                         RemoveTask(toBeRemoved);
+                    }
+               } else if(command.equals("change status")){
+                    Task toBeChanged = GetTask();
+                    if(toBeChanged != null) {
+                         ChangeStatus(toBeChanged);
+                    }
+               }
+               if(!command.contains("show")){
+                    ShowTasks();
                }
           }
+     }
+
+     public Task GetTask() {
+          System.out.print("Enter task name: ");
+          String taskName = scanner.nextLine();
+          for(Task task : tasks){
+               if(task.GetName().equals(taskName)){
+                    return task;
+               }
+          }
+          return null;
+     }
+
+     public void RemoveTask(Task toBeRemoved) {
+          tasks.remove(toBeRemoved);
+     }
+
+     public void ChangeStatus(Task task) {
+          task.ChangeStatus();
      }
 
      public void ShowTasks() {
           for(Task task : tasks) {
                System.out.println(task);
           }
+     }
+
+     public void AddTask() {
+          String name;
+          String description;
+          int priority;
+          System.out.print("Enter name: ");
+          name = scanner.nextLine();
+          System.out.print("Enter description: ");
+          description = scanner.nextLine();
+          System.out.print("Enter priority, enter 0 for last: ");
+          priority = scanner.nextInt();
+          Task task = new Task(name, description, priority);
+          tasks.add(task);
      }
 
 

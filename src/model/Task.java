@@ -17,7 +17,7 @@ public class Task {
         this.priority = priority;
     }
     public String toString() {
-        return this.name + '\n' + this.description + '\n' + this.priority;
+        return this.name + '\n' + this.description + '\n' + this.priority +'\n' + this.isCompleted;
     }
     public int GetId() {
         return id;
